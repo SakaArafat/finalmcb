@@ -9,7 +9,7 @@
         "browser"
     ],
     "scripts": {
-        "start": "main.js"
+        "start": "node main.js"
     },
     "author": "admin",
     "contributors": [],
