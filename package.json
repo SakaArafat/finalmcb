@@ -8,7 +8,9 @@
         "client",
         "browser"
     ],
-    "main": "main.js",
+    "scripts": {
+        "start": "main.js"
+    },
     "author": "admin",
     "contributors": [],
     "dependencies": {
