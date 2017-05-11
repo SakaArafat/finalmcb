@@ -31,7 +31,7 @@ app.post('/webhook', (req, res) => {
         res.status(200).end();
     }
 })
-app.use("/test", (req, res) => {
+app.get("/test", (req, res) => {
     res.json("Hello There, this app works!");
 })
 const server = app.listen(process.env.PORT || 3000, () => {
