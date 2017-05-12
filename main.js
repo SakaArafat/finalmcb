@@ -40,6 +40,7 @@ app.get("/test", (req, res) => {
 
 function sendMessage(event) {
     let sender = event.sender.id;
+    console.log("The sender id is: " + sender);
     let message = event.message.text;
     let context = null;
     let contextIndex = 0;
