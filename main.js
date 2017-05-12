@@ -96,7 +96,8 @@ function sendMessage(event) {
             request({
                 url: "https://graph.facebook.com/v2.6/me/messages",
                 qs: {
-                    access_token: "EAAGI5aLQ0WMBAPaldrDxXPn52wWZA7ZAWAyPqvWg5xCF6ZCXa9OivmRxPP2hZBDXnxHiR0dvaVWRIymLWT9Tf7q9dDXfFWk0MdekoNVZCITSHNgXKzPHJe3tmY1RGIjLuGyVWQCLEZATSHUoCRp4TX3WIcOSJxKMhaGhB1VtgD8QZDZD"
+                    access_token: "EAABlPA1U7X8BANsGiKdrK5BmZA1wI5qckKzcJ6EE2YhQ9ZBUC8aU2nEbQ45A0mQKV0H4MZCGQw2a7XyhnRuBlBkOTvKZBuDGyoEzDsqX2UEHeP4Yb46CwliIoaaMO7wKMmbOVJaIhgFrNlCgn0pacYrfCQGROzObxX3VkR8SCAZDZD"
+
                 },
                 method: "POST",
                 json: {
@@ -120,4 +121,8 @@ function sendMessage(event) {
 const server = app.listen(process.env.PORT || 3000, () => {
     console.log("Server starting on port: " + server.address().port)
 });
+// For Saka's former page.
 // access_token: "EAAEhpuUYLXkBAKatG6W5vF04vNwDMUBMOrXIbeNTVOMTRZBaj9ZCXDoQDxZBiKVuywKrGlfQUlJstO2YRqrarE6Tqr3ZCXmkOTUZAfflK5i2ccJ7wFaSaMTr7AJw0ersvUPo3Q09HhqVuM0NNbdmxcSirQH7Fv3oe5bTTdem5VgZDZD"
+
+//For Impulse Energy Drink
+// access_token: "EAAGI5aLQ0WMBAPaldrDxXPn52wWZA7ZAWAyPqvWg5xCF6ZCXa9OivmRxPP2hZBDXnxHiR0dvaVWRIymLWT9Tf7q9dDXfFWk0MdekoNVZCITSHNgXKzPHJe3tmY1RGIjLuGyVWQCLEZATSHUoCRp4TX3WIcOSJxKMhaGhB1VtgD8QZDZD"
