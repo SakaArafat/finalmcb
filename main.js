@@ -80,18 +80,19 @@ function sendMessage(event) {
             } else {
                 contexts[contextIndex].context = response.context;
             }
-            //First check if there is an intent available
+            //First check if there are intents available
             if (typeof response.intents != "undefined") {
-                console.log(response.intents);
-            }
-            if (typeof response.intents[0].intent != "undefined") {
-                var intent = response.intents[0].intent;
-                console.log(intent);
-                if (intent == 'done') {
-                    contexts.splice(contextIndex, 1);
+                //Copy the intent into another variable
+                intentArray = response.intents;
+                if (intentArray.length > 0) {
+                    var intent = response.intents[0].intent;
+                    console.log(intent);
+                    if (intent == 'done') {
+                        contexts.splice(contextIndex, 1);
+                    }
                 }
-            }
 
+            }
             request({
                 url: "https://graph.facebook.com/v2.6/me/messages",
                 qs: {
