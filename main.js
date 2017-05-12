@@ -56,7 +56,7 @@ function sendMessage(event) {
     var conversation = new watson({
         username: "bdce6430-3faa-4ee8-a5db-8cb521efd395",
         password: "te7tJKBhISig",
-        version: watson.VERSION_DATE_2016_09_20
+        version: watson.VERSION_DATE_2017_04_21
     });
     console.log(JSON.stringify(context));
     console.log(contexts.length);
