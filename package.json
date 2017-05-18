@@ -1,6 +1,11 @@
 {
-    "name": "MFTWatsonMessengerTest",
+    "name": "mftwatsonmessengertest",
     "version": "1.0.0",
+    "description": "Chat bot for MyFunnelTeam",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/olakunleoladimeji/mftwatsonmessengertest"
+    },
     "keywords": [
         "util",
         "functional",
@@ -14,9 +19,15 @@
     "author": "admin",
     "contributors": [],
     "dependencies": {
-        "express": "latest",
-        "body-parser": "latest",
-        "request": "latest",
-        "watson-developer-cloud": "latest"
-    }
+        "express": "^4.15.3",
+        "body-parser": "^1.17.1",
+        "request": "^2.81.0",
+        "watson-developer-cloud": "^2.31.1",
+        "async": "2.4.0",
+        "angular": "^1.6.4",
+        "angular-route": "^1.6.4",
+        "bootstrap": "^3.3.7",
+        "jquery": "^3.2.1"
+    },
+    "license": "MIT"
 }

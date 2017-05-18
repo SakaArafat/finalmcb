@@ -13,7 +13,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+//Public facing route
+app.use("/", express.static(__dirname + "/public"));
 
+// Route for javascript libs
+app.use("/libs", express.static(__dirname + "/node_modules"));
+
+// Webhook GET route
 app.get("/webhook", (req, res) => {
     if (req.query['hub.mode'] && req.query['hub.verify_token'] === 'myfunnelteam') {
         res.status(200).send(req.query['hub.challenge']);
@@ -21,6 +27,8 @@ app.get("/webhook", (req, res) => {
         res.status(403).end();
     }
 });
+
+//Webhook POST route
 app.post('/webhook', (req, res) => {
     console.log(req.body);
     if (req.body.object === 'page') {
@@ -33,11 +41,84 @@ app.post('/webhook', (req, res) => {
         });
         res.status(200).end();
     }
-})
+});
+
+// Endpoint test GET route
 app.get("/test", (req, res) => {
     res.json("Hello There, this app works!");
 });
 
+// Web chat client GET route
+app.get("/api/message", (req, res) => {
+    sendMessageClient({
+        sessionID: req.query.sessionID,
+        message: req.query.message
+    }, (response) => {
+        return res.send(response);
+    });
+});
+
+//Function for dealing with web chat messages
+
+function sendMessageClient(inputBody, callback) {
+    let sender = inputBody.sessionID;
+    let message = inputBody.message;
+    let context = null;
+    let contextIndex = 0;
+    let index = 0;
+    contexts.forEach((value) => {
+        if (value.from == sender) {
+            context = value.context;
+            contextIndex = index;
+        }
+        index++;
+    });
+    console.log("Received message from a chat client saying " + message);
+    var conversation = new watson({
+        username: "bdce6430-3faa-4ee8-a5db-8cb521efd395",
+        password: "te7tJKBhISig",
+        version_date: watson.VERSION_DATE_2017_04_21
+    });
+    conversation.message({
+        input: {
+            text: message
+        },
+        workspace_id: "cb34787f-638d-40d8-99bf-4ddbfa893732",
+        context: context,
+    }, (err, response) => {
+        if (err) {
+            console.log(err);
+            return callback("Error");
+        } else {
+            console.log(response.output.text[0]);
+            if (!context) {
+                contexts.push({
+                    "from": sender,
+                    "context": response.context
+                })
+            } else {
+                contexts[contextIndex].context = response.context;
+            }
+            //First check if there are intents available
+            if (typeof response.intents != "undefined") {
+                //Copy the intent into another variable
+                intentArray = response.intents;
+                if (intentArray.length > 0) {
+                    var intent = response.intents[0].intent;
+                    console.log(intent);
+                    if (intent == 'done') {
+                        contexts.splice(contextIndex, 1);
+                    }
+                }
+
+            }
+            console.log(response.output.text[0]);
+            return callback(response.output.text[0]);
+        }
+    });
+}
+
+// Function for dealing with FB messages
 function sendMessage(event) {
     let sender = event.sender.id;
     console.log("The sender id is: " + sender);
