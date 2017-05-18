@@ -90,7 +90,6 @@ function sendMessageClient(inputBody, callback) {
             console.log(err);
             return callback("Error");
         } else {
-            console.log(response.output.text[0]);
             if (!context) {
                 contexts.push({
                     "from": sender,
