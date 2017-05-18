@@ -14,7 +14,13 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //Public facing route
-app.use("/", express.static(__dirname + "/public"));
+app.get("/", (req, res) => {
+    res.redirect("/hotel");
+})
+
+app.use("/bank", express.static(__dirname + "/public"));
+
+app.use("/hotel", express.static(__dirname + "/public"));
 
 // Route for javascript libs
 app.use("/libs", express.static(__dirname + "/node_modules"));
@@ -52,11 +58,14 @@ app.get("/test", (req, res) => {
 app.get("/api/message", (req, res) => {
     sendMessageClient({
         sessionID: req.query.sessionID,
-        message: req.query.message
+        message: req.query.message,
+        clientType: req.query.from
     }, (response) => {
         return res.send(response);
     });
+
 });
+
 
 //Function for dealing with web chat messages
 
@@ -83,7 +92,7 @@ function sendMessageClient(inputBody, callback) {
         input: {
             text: message
         },
-        workspace_id: "cb34787f-638d-40d8-99bf-4ddbfa893732",
+        workspace_id: inputBody.clientType == "bank" ? "d0442102-aa14-464d-9132-e08f9e08ebf9" : "cb34787f-638d-40d8-99bf-4ddbfa893732",
         context: context,
     }, (err, response) => {
         if (err) {
@@ -111,11 +120,13 @@ function sendMessageClient(inputBody, callback) {
                 }
 
             }
-            console.log(response.output.text[0]);
+            console.log(response.output);
             return callback(response.output.text[0]);
         }
     });
 }
+
+//Function for dealing with bank endpoint. Next time it'll be dynamic 
 
 // Function for dealing with FB messages
 function sendMessage(event) {

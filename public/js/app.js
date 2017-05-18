@@ -16,6 +16,14 @@
         return this;
     };
 
+    function whatPage() {
+        if (window.location.pathname == "/bank/") {
+            return "bank";
+        } else {
+            return "hotel";
+        }
+    }
+
     function guid() {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)
@@ -28,6 +36,8 @@
     $(function () {
         var getMessageText, message_side, sendMessage;
         var sessionID = guid();
+        var pageType = whatPage();
+        console.log(pageType);
         message_side = 'right';
         getMessageText = function () {
             var $message_input;
@@ -53,7 +63,8 @@
                 url: "/api/message",
                 data: {
                     sessionID: sessionID,
-                    message: text
+                    message: text,
+                    from: pageType
                 },
                 success: function (response) {
                     var chat = new Message({
