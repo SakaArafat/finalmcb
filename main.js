@@ -84,15 +84,15 @@ function sendMessageClient(inputBody, callback) {
     });
     console.log("Received message from a chat client saying " + message);
     var conversation = new watson({
-        username: "bdce6430-3faa-4ee8-a5db-8cb521efd395",
-        password: "te7tJKBhISig",
+        username: "683584ae-5991-4ca6-a7a9-3961a658cd33",
+        password: "3OpKNmHohem3",
         version_date: watson.VERSION_DATE_2017_04_21
     });
     conversation.message({
         input: {
             text: message
         },
-        workspace_id: inputBody.clientType == "bank" ? "d0442102-aa14-464d-9132-e08f9e08ebf9" : "cb34787f-638d-40d8-99bf-4ddbfa893732",
+        workspace_id: inputBody.clientType == "bank" ? "69581154-9452-4028-8ad3-37ab279dbd63" : "cb34787f-638d-40d8-99bf-4ddbfa893732",
         context: context,
     }, (err, response) => {
         if (err) {
