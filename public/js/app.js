@@ -90,7 +90,7 @@
                 return sendMessage(getMessageText());
             }
         });
-        // sendMessage('Hello Philip! :)');
+        sendMessage('Hello Philip! :)');
         // setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
