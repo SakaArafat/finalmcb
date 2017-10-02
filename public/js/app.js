@@ -54,10 +54,12 @@
             $messages = $('.messages');
             // message_side = message_side === 'left' ? 'right' : 'left';
             message_side = sender === "user" ? "left" : "right";
-            message = new Message({
+            if(showInChat){
+                message = new Message({
                 text: text,
                 message_side: message_side
-            });
+            }); 
+            }           
             message.draw();
             $.ajax({
                 type: "GET",
@@ -93,11 +95,5 @@
         });
           //welcomeMessage
         sendMessage('Hello! :)', "user", false);
-        //setTimeout(function () {
-        //     return sendMessage('Hi Sandy! How are you?');
-        // }, 1000);
-        // return setTimeout(function () {
-        //     return sendMessage('I\'m fine, thank you!');
-        // }, 2000);
     });
 }.call(this));
