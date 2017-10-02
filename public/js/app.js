@@ -44,7 +44,7 @@
             $message_input = $('.message_input');
             return $message_input.val();
         };
-        welcomemessage = 
+        welcomemessage = text("Hello world!");
         sendMessage = function (text, sender = "user") {
             var $messages, message;
             if (text.trim() === '') {
