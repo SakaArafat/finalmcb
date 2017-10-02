@@ -34,7 +34,7 @@
             s4() + '-' + s4() + s4() + s4();
     }
     $(function () {
-        var getMessageText, message_side, sendMessage; welcomemessage;
+        var getMessageText, message_side, sendMessage, welcomemessage;
         var sessionID = guid();
         var pageType = whatPage();
         console.log(pageType);
@@ -91,8 +91,8 @@
                 return sendMessage(getMessageText());
             }
         });
-          //welcomeMessage('Hello Philip! :)');
-        sendMessage('Hello! :)');
+          welcomeMessage
+        //sendMessage('Hello! :)');
         //setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
