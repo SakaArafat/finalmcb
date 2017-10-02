@@ -91,8 +91,8 @@
                 return sendMessage(getMessageText());
             }
         });
-          welcomeMessage('Hello Philip! :)');
-        //sendMessage('Hello Philip! :)');
+          //welcomeMessage('Hello Philip! :)');
+        sendMessage('Hello! :)');
         //setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
