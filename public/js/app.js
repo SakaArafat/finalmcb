@@ -34,7 +34,7 @@
             s4() + '-' + s4() + s4() + s4();
     }
     $(function () {
-        var getMessageText, message_side, sendMessage, welcomemessage;
+        var getMessageText, message_side, sendMessage;
         var sessionID = guid();
         var pageType = whatPage();
         console.log(pageType);
@@ -44,7 +44,7 @@
             $message_input = $('.message_input');
             return $message_input.val();
         };
-        welcomemessage = text("Hello world!");
+       
         sendMessage = function (text, sender = "user") {
             var $messages, message;
             if (text.trim() === '') {
@@ -91,8 +91,8 @@
                 return sendMessage(getMessageText());
             }
         });
-          welcomeMessage
-        //sendMessage('Hello! :)');
+          //welcomeMessage
+        sendMessage('Hello! :)');
         //setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
