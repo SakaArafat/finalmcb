@@ -84,15 +84,15 @@ function sendMessageClient(inputBody, callback) {
     });
     console.log("Received message from a chat client saying " + message);
     var conversation = new watson({
-        username: "683584ae-5991-4ca6-a7a9-3961a658cd33",
-        password: "3OpKNmHohem3",
+        username: "10c1a992-fee8-4061-8290-44d0f6f2c5b4",
+        password: "fLvItEPAvfUu",
         version_date: watson.VERSION_DATE_2017_04_21
     });
     conversation.message({
         input: {
             text: message
         },
-        workspace_id: inputBody.clientType == "bank" ? "69581154-9452-4028-8ad3-37ab279dbd63" : "cb34787f-638d-40d8-99bf-4ddbfa893732",
+        workspace_id: inputBody.clientType == "MCB" ? "69581154-9452-4028-8ad3-37ab279dbd63" : "b354d966-b5ea-4036-b319-f6705d7e098b",
         context: context,
     }, (err, response) => {
         if (err) {
@@ -146,8 +146,8 @@ function sendMessage(event) {
     });
     console.log("Received message from " + sender + " saying '" + message + "'");
     var conversation = new watson({
-        username: "bdce6430-3faa-4ee8-a5db-8cb521efd395",
-        password: "te7tJKBhISig",
+        username: "10c1a992-fee8-4061-8290-44d0f6f2c5b4",
+        password: "fLvItEPAvfUu",
         version_date: watson.VERSION_DATE_2017_04_21
     });
     console.log(JSON.stringify(context));
@@ -156,7 +156,7 @@ function sendMessage(event) {
         input: {
             text: message
         },
-        workspace_id: "cb34787f-638d-40d8-99bf-4ddbfa893732",
+        workspace_id: "b354d966-b5ea-4036-b319-f6705d7e098b",
         context: context,
     }, (err, response) => {
         if (err) {
