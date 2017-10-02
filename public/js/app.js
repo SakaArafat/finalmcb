@@ -45,7 +45,7 @@
             return $message_input.val();
         };
        
-        sendMessage = function (text, sender = "user") {
+        sendMessage = function (text, sender = "user", showInChat = true) {
             var $messages, message;
             if (text.trim() === '') {
                 return;
@@ -92,7 +92,7 @@
             }
         });
           //welcomeMessage
-        sendMessage('Hello! :)');
+        sendMessage('Hello! :)', "user", false);
         //setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
