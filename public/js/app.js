@@ -90,8 +90,9 @@
                 return sendMessage(getMessageText());
             }
         });
+          Message('Hello Philip! :)');
         //sendMessage('Hello Philip! :)');
-        setTimeout(function () {
+        //setTimeout(function () {
         //     return sendMessage('Hi Sandy! How are you?');
         // }, 1000);
         // return setTimeout(function () {
