@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({
 }));
 //Public facing route
 app.get("/", (req, res) => {
-    res.redirect("/hotel");
+    res.redirect("/bank");
 })
 
 app.use("/bank", express.static(__dirname + "/public"));
 
-app.use("/hotel", express.static(__dirname + "/public"));
+app.use("/bank", express.static(__dirname + "/public"));
 
 // Route for javascript libs
 app.use("/libs", express.static(__dirname + "/node_modules"));
