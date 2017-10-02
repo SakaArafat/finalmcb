@@ -59,8 +59,9 @@
                 text: text,
                 message_side: message_side
             }); 
+                     message.draw();
             }           
-            message.draw();
+       
             $.ajax({
                 type: "GET",
                 url: "/api/message",
