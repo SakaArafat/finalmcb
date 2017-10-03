@@ -187,7 +187,7 @@ function sendMessage(event) {
             request({
                 url: "https://graph.facebook.com/v2.6/me/messages",
                 qs: {
-                    access_token: "EAABlPA1U7X8BANsGiKdrK5BmZA1wI5qckKzcJ6EE2YhQ9ZBUC8aU2nEbQ45A0mQKV0H4MZCGQw2a7XyhnRuBlBkOTvKZBuDGyoEzDsqX2UEHeP4Yb46CwliIoaaMO7wKMmbOVJaIhgFrNlCgn0pacYrfCQGROzObxX3VkR8SCAZDZD"
+                    access_token: "EAAVWgR8f1O8BADwJQnuA2XeKlYhw14MsqnP613qu13SqrMbLaZAGv6xkBBiEfJEKRVQ0EIxMiCgrsgePbCj8bRS4siSUaItfuzFxrATmJ2YI6cmYswPTRIZCyi6g9Rz5i1sZAZBArQfQLxKGcGKascMKLIPEZAnbRZBVbrVDELNpXANZCXNnCRK"
 
                 },
                 method: "POST",
