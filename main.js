@@ -92,7 +92,7 @@ function sendMessageClient(inputBody, callback) {
         input: {
             text: message
         },
-        workspace_id: inputBody.clientType == "MCB" ? "69581154-9452-4028-8ad3-37ab279dbd63" : "b354d966-b5ea-4036-b319-f6705d7e098b",
+        workspace_id: inputBody.clientType == "MCB" ? "69581154-9452-4028-8ad3-37ab279dbd63" : "93c48d7f-22d4-4940-9071-a5792c39976e",
         context: context,
     }, (err, response) => {
         if (err) {
@@ -156,7 +156,7 @@ function sendMessage(event) {
         input: {
             text: message
         },
-        workspace_id: "b354d966-b5ea-4036-b319-f6705d7e098b",
+        workspace_id: "93c48d7f-22d4-4940-9071-a5792c39976e",
         context: context,
     }, (err, response) => {
         if (err) {
